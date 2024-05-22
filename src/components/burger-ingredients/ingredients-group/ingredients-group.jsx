@@ -1,5 +1,6 @@
 import IngredientItem from "../ingredient-item/ingredient-item"
 import styles from "./ingredients-group.module.css"
+import PropTypes from 'prop-types';
 
 function IngredientsGroup(props) {
     return(
@@ -10,6 +11,16 @@ function IngredientsGroup(props) {
             </ul>  
         </div>
     )
+}
+
+IngredientsGroup.prototype = {
+    name: PropTypes.string.isRequired,
+    data: PropTypes.shape({
+        _id: PropTypes.string,
+        name: PropTypes.string,
+        price: PropTypes.number,
+        image: PropTypes.string
+    }).isRequired
 }
 
 export default IngredientsGroup

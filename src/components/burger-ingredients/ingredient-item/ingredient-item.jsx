@@ -1,5 +1,6 @@
 import { CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components"
 import styles from './ingredient-item.module.css';
+import PropTypes from 'prop-types';
 
 function IngredientItem(props) {
     return(
@@ -12,6 +13,14 @@ function IngredientItem(props) {
             <div className={`${styles['cardTitle']} text text_type_main-default`}>{props.data.name}</div>
         </li>
     )
+}
+
+IngredientItem.prototype = {
+    data: PropTypes.shape({
+        name: PropTypes.string,
+        price: PropTypes.number,
+        image: PropTypes.string
+    }).isRequired
 }
 
 export default IngredientItem
