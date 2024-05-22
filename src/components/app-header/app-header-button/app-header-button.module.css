@@ -1,0 +1,10 @@
+.headerbutton {
+    display: flex;
+    border-radius: var(--common-border-radius-s);
+    text-decoration: none;
+    transition: var(--common-transition);
+}
+
+.headerbutton:hover {
+    background: var(--background-element);
+}
