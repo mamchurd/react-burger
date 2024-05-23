@@ -1,9 +1,10 @@
 import { Tab } from "@ya.praktikum/react-developer-burger-ui-components"
 import IngredientsGroup from "./ingredients-group/ingredients-group"
-import { data } from "../../utils/data"
 import styles from './burger-ingredients.module.css'
+import { dataPropTypes } from "../../utils/dataPropTypes"
+import PropTypes from 'prop-types';
 
-function BurgerIngredients() {
+function BurgerIngredients(props) {
 
     return(
         <section className={styles.section}>
@@ -22,12 +23,16 @@ function BurgerIngredients() {
             </div>
 
             <div className={styles.list}>
-                <IngredientsGroup name='Булки' data={data.filter(item => item.type==='bun')}/>
-                <IngredientsGroup name='Соусы' data={data.filter(item => item.type==='sauce')}/>
-                <IngredientsGroup name='Начинки' data={data.filter(item => item.type==='main')}/>
+                <IngredientsGroup name='Булки' data={props.data.filter(item => item.type==='bun')}/>
+                <IngredientsGroup name='Соусы' data={props.data.filter(item => item.type==='sauce')}/>
+                <IngredientsGroup name='Начинки' data={props.data.filter(item => item.type==='main')}/>
             </div>
         </section>
     )
+}
+
+BurgerIngredients.propTypes ={
+    data: PropTypes.arrayOf(dataPropTypes)
 }
 
 export default BurgerIngredients
