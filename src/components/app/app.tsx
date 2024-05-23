@@ -3,10 +3,11 @@ import styles from './app.module.css';
 import AppHeader from '../app-header/app-header';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import BurgerConstructor from '../burger-constructor/burger-constructor';
+import { dataLoad } from '../../utils/api';
 
 const MESSAGE_LOADING = 'Подождите, идет загрузка...';
 const MESSAGE_ERROR = 'Упс, у нас возникли технические неполадки :(';
-const URL_API = 'https://norma.nomoreparties.space/api/ingredients';
+
 
 function App() {
 
@@ -39,30 +40,10 @@ function App() {
               <BurgerConstructor data={state.data}/>
             </div> 
           </main>
-          <div id='modal'></div>
         </>
       }       
     </>
   );
-}
-
-async function dataLoad() {
-
-  const res = await fetch(URL_API);
-  if (res.status !== 200) {
-    throw Error(`Неверный html-статус ответа: ${res.status}: ${res.statusText}`);
-  }
-  const res_1 = await res.json();
-  if (!res_1.success) {
-    throw Error('В json-ответе success !== true');
-  }
-  if (res_1.data && res_1.data.length > 0) {
-    return Promise.resolve(res_1.data);
-  }
-  else {
-    throw Error('возвращен пустой или некорректный набор данных');
-  }
-
 }
 
 export default App;

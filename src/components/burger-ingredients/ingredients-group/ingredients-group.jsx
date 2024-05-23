@@ -14,9 +14,9 @@ function IngredientsGroup(props) {
     )
 }
 
-IngredientsGroup.prototype = {
+IngredientsGroup.propTypes = {
     name: PropTypes.string.isRequired,
-    data: dataPropTypes
+    data: PropTypes.arrayOf(dataPropTypes)
 }
 
 export default IngredientsGroup
