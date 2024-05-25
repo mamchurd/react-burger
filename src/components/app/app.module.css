@@ -10,3 +10,10 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,3 +1,4 @@
+import { dataPropTypes } from "../../../utils/dataPropTypes";
 import IngredientItem from "../ingredient-item/ingredient-item"
 import styles from "./ingredients-group.module.css"
 import PropTypes from 'prop-types';
@@ -13,14 +14,9 @@ function IngredientsGroup(props) {
     )
 }
 
-IngredientsGroup.prototype = {
+IngredientsGroup.propTypes = {
     name: PropTypes.string.isRequired,
-    data: PropTypes.shape({
-        _id: PropTypes.string,
-        name: PropTypes.string,
-        price: PropTypes.number,
-        image: PropTypes.string
-    }).isRequired
+    data: PropTypes.arrayOf(dataPropTypes)
 }
 
 export default IngredientsGroup
