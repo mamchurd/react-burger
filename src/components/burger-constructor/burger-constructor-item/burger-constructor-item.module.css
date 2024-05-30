@@ -1,0 +1,16 @@
+.ingredient {
+    background: var(--background);
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+}
+
+.draggable {
+    cursor: grabbing;
+}
+
+.dragging {
+    opacity: 0;
+}

@@ -1,4 +1,5 @@
 .card {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 272px;
@@ -17,4 +18,19 @@
 .cardTitle {
     height: 48px;
     text-align: center;
+}
+
+.count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4C4CFF;
+    border-radius: 16px;
 }
