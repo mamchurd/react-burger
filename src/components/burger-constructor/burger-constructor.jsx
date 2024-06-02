@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useDrop } from "react-dnd";
 import { addIngredient, deleteIngredient, setBun } from "../../services/slices/constructor-ingredients-list";
 import BurgerConstructorItem from "./burger-constructor-item/burger-constructor-item";
-import { v4 as uuid } from 'uuid';
 import BurgerConstructorOrder from "./burger-cinstuctor-order/burger-cinstuctor-order";
 
 function BurgerConstructor() {
@@ -33,8 +32,8 @@ const [, dropTargetBunDown] = useDrop({
     }
   })
  
-  const handleDeleteIngredient = (index) => {
-    dispatch(deleteIngredient(index))
+  const handleDeleteIngredient = (id) => {
+    dispatch(deleteIngredient(id))
   }
   
   return(
@@ -58,7 +57,7 @@ const [, dropTargetBunDown] = useDrop({
         
         <ul className={`${styles.scroll} mt-4 mb-4`} ref={dropTarget}>  
           {ingredients.length  > 0 ? ingredients.map((item, index) => (
-              <BurgerConstructorItem key={uuid()} item={item} index={index} onDelete={handleDeleteIngredient} />
+              <BurgerConstructorItem key={item.id} item={item} index={index} onDelete={handleDeleteIngredient} />
           )) :
           <li className={`${styles.emptyElement} constructor-element constructor-element ml-8`}>
             <div className={`${styles.emptyElementText} constructor-element__text`}>Перетащите сюда ингредиенты</div>     

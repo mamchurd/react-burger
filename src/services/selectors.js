@@ -14,8 +14,3 @@ export const getMains = createSelector(
     (state) => state.loadIngredients.data,
     (data) => data.filter(item => item.type==='main') 
 )
-
-export const showModal = createSelector(
-    (state) => state.createOrder,
-    (state) => state.orderNumber || state.isLoading || state.isError
-)

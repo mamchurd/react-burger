@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { dataLoad } from "../../utils/api"
 
 const initialState = {
@@ -10,34 +10,33 @@ const initialState = {
 const loadIngredientsSlice = createSlice({
     name: 'loadIngredients',
     initialState,
-    reducers: {
-        ingredientsLoading: (state) => {
-            state.isLoading = true
-            state.isFailed = false
-        },
-        ingredientsSuccess: (state, action) => {
-            state.data = action.payload
-            state.isLoading = false
-            state.isFailed = false
-        },
-        ingredientsFailed: (state) => {
-            state.isLoading = false
-            state.isFailed = true
-        }
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchIngredients.fulfilled, (state, action) => {
+                state.data = action.payload
+                state.isLoading = false
+                state.isFailed = false    
+            })
+            .addCase(fetchIngredients.pending, (state, action) => {
+                state.isLoading = true
+                state.isFailed = false
+            })
+            .addCase(fetchIngredients.rejected, (state, action) => {
+                state.isLoading = false
+                state.isFailed = true
+            })
     }
 })
 
-const { ingredientsLoading, ingredientsSuccess, ingredientsFailed } = loadIngredientsSlice.actions
-
-export const fetchIngredients = () => async (dispatch) => {
-    dispatch(ingredientsLoading())
-    dataLoad()
-        .then(data => {
-            dispatch(ingredientsSuccess(data))
-        })
-        .catch(e => {
-            dispatch(ingredientsFailed())
-        })
-}
+export const fetchIngredients = createAsyncThunk(
+    'loadIngredients/fetchIngredients',
+    async (_, thunkAPI) => {
+        try {
+            return await dataLoad()
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.massege)
+        }
+    }
+)
 
 export default loadIngredientsSlice

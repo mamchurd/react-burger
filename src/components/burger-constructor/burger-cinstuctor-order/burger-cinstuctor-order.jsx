@@ -5,12 +5,12 @@ import styles from "./burger-cinstuctor-order.module.css"
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearOrder, fetchOrder } from "../../../services/slices/create-order";
-import { showModal } from "../../../services/selectors";
+import { clearIngredientsList } from "../../../services/slices/constructor-ingredients-list";
 
 function BurgerConstructorOrder() {
 
     const { bun, ingredients } = useSelector(store => store.ingredientsList)
-    const showOrderDetail = useSelector(showModal)
+    const { orderNumber , isLoading , isError } = useSelector(store => store.createOrder)
 
     const dispatch = useDispatch()
 
@@ -37,6 +37,8 @@ function BurgerConstructorOrder() {
     }
 
     const habdleCloseModal = () => {
+        if (orderNumber)
+            dispatch(clearIngredientsList()) 
         dispatch(clearOrder())
     }
     
@@ -45,7 +47,7 @@ function BurgerConstructorOrder() {
             <div className="text text_type_digits-medium mr-2 mb-1">{totalPrice}</div>
             <div className={`${styles['total-icon']} mr-10`}><CurrencyIcon type="primary" /></div>
             <Button htmlType="button" type="primary" onClick={handleCreateOrderClick}>Оформить заказ</Button>  
-        {showOrderDetail && 
+        {(orderNumber || isLoading || isError) && 
             <Modal caption={''} onClose={habdleCloseModal}>
                 <OrderDetails />
             </Modal>}

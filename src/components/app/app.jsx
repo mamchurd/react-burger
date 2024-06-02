@@ -17,7 +17,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchIngredients(dispatch))
+    dispatch(fetchIngredients())
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

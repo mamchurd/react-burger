@@ -69,7 +69,7 @@ function BurgerConstructorItem({index, item, onDelete}) {
                 text={item.name}
                 price={item.price}
                 thumbnail={item.image}
-                handleClose = {() => onDelete(index)}
+                handleClose = {() => onDelete(item.id)}
                 extraClass={`${styles.ingredient} ml-2`}
             />
         </li>
