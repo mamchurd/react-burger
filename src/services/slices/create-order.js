@@ -29,6 +29,7 @@ export const createOrderSlice = createSlice({
                 state.isError = false
             })
             .addCase(fetchOrder.rejected, (state, action) => {
+                state.orderNumber = null
                 state.isLoading = false
                 state.isError = true
             })
