@@ -1,21 +1,21 @@
 .detail {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .image {
-    width: 480px;
-    height: 240px;
-    display: block;
+  width: 480px;
+  height: 240px;
+  display: block;
 }
 
 .name {
-    max-width: 480px;
-    text-align: center;
+  max-width: 480px;
+  text-align: center;
 }
 
-.detailItem{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

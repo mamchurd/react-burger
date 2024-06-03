@@ -1,20 +1,36 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    width: 272px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 272px;
 }
 
 .cardImage {
-    width: 240px;
-    height: 120px;
+  width: 240px;
+  height: 120px;
 }
 
 .cardPrice {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .cardTitle {
-    height: 48px;
-    text-align: center;
+  height: 48px;
+  text-align: center;
+}
+
+.count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4c4cff;
+  border-radius: 16px;
 }
