@@ -43,7 +43,7 @@ export const fetchOrder = createAsyncThunk('createOrder/fetchOrder', async (ingr
   try {
     return await createOrder(ingredients);
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.massege);
+    return thunkAPI.rejectWithValue(error.massage);
   }
 });
 

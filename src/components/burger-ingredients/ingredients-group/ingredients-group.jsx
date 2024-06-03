@@ -24,8 +24,8 @@ function IngredientsGroup(props) {
     <div className='pt-5 pb-5'>
       <p className='text text_type_main-medium pb-6'> {props.name} </p>
       <ul className={styles.groupContent}>
-        {props.data.map((ingridient) => (
-          <IngredientItem key={ingridient._id} data={ingridient} count={burgerData[ingridient._id]} />
+        {props.data.map((ingredient) => (
+          <IngredientItem key={ingredient._id} data={ingredient} count={burgerData[ingredient._id]} />
         ))}
       </ul>
     </div>

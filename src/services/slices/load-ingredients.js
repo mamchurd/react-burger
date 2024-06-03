@@ -34,7 +34,7 @@ export const fetchIngredients = createAsyncThunk('loadIngredients/fetchIngredien
   try {
     return await dataLoad();
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.massege);
+    return thunkAPI.rejectWithValue(error.massage);
   }
 });
 

@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import './index.css';
+import { Provider } from 'react-redux';
+
 import App from './components/app/app';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
 import { store } from './services/store';
+
+// eslint-disable-next-line import/order
 import { DndProvider } from 'react-dnd';
+// eslint-disable-next-line import/order
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);

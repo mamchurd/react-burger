@@ -3,7 +3,7 @@ import { Button, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-co
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import styles from './burger-cinstuctor-order.module.css';
+import styles from './burger-constructor-order.module.css';
 
 import { clearIngredientsList } from '../../../services/slices/constructor-ingredients-list';
 import { clearOrder, fetchOrder } from '../../../services/slices/create-order';
@@ -36,7 +36,7 @@ function BurgerConstructorOrder() {
     }
   };
 
-  const habdleCloseModal = () => {
+  const handleCloseModal = () => {
     if (orderNumber) dispatch(clearIngredientsList());
     dispatch(clearOrder());
   };
@@ -51,7 +51,7 @@ function BurgerConstructorOrder() {
         Оформить заказ
       </Button>
       {(orderNumber || isLoading || isError) && (
-        <Modal caption={''} onClose={habdleCloseModal}>
+        <Modal caption={''} onClose={handleCloseModal}>
           <OrderDetails />
         </Modal>
       )}

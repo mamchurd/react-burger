@@ -4,9 +4,8 @@ import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './burger-ingredients.module.css';
+import IngredientsDetails from './ingredients-details/ingredients-details';
 import IngredientsGroup from './ingredients-group/ingredients-group';
-
-import IngridientsDetails from './ingridients-details/ingridients-details';
 
 import { getBuns, getMains, getSauces } from '../../services/selectors';
 import { unselectIngredient } from '../../services/slices/ingredients-details';
@@ -92,7 +91,7 @@ function BurgerIngredients() {
       </div>
       {selectedItem && (
         <Modal caption={'Детали ингридиента'} onClose={hideModal}>
-          <IngridientsDetails />
+          <IngredientsDetails />
         </Modal>
       )}
     </section>

@@ -1,10 +1,13 @@
 import { ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
-import styles from './burger-constructor.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+
 import { useDrop } from 'react-dnd';
-import { addIngredient, deleteIngredient, setBun } from '../../services/slices/constructor-ingredients-list';
+import { useDispatch, useSelector } from 'react-redux';
+
 import BurgerConstructorItem from './burger-constructor-item/burger-constructor-item';
-import BurgerConstructorOrder from './burger-cinstuctor-order/burger-cinstuctor-order';
+import BurgerConstructorOrder from './burger-constructor-order/burger-constructor-order';
+import styles from './burger-constructor.module.css';
+
+import { addIngredient, deleteIngredient, setBun } from '../../services/slices/constructor-ingredients-list';
 
 function BurgerConstructor() {
   const { bun, ingredients } = useSelector((store) => store.ingredientsList);

@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 
-import styles from './ingridients-details.module.css';
+import styles from './ingredients-details.module.css';
 
-function IngridientsDetails() {
+function IngredientsDetails() {
   const selectedItem = useSelector((store) => store.ingredientsDetail.selectedItem);
 
   return (
@@ -31,4 +31,4 @@ function IngridientsDetails() {
   );
 }
 
-export default IngridientsDetails;
+export default IngredientsDetails;
