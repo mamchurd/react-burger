@@ -1,8 +1,8 @@
-import loadIngredientsSlice from './slices/load-ingredients';
-import ingredientsDetailSlice from './slices/ingredients-details';
-import tabInfoSlice from './slices/tab-info';
 import constructorIngredientsListSlice from './slices/constructor-ingredients-list';
 import createOrderSlice from './slices/create-order';
+import ingredientsDetailSlice from './slices/ingredients-details';
+import loadIngredientsSlice from './slices/load-ingredients';
+import tabInfoSlice from './slices/tab-info';
 
 export const rootReducer = {
   [loadIngredientsSlice.reducerPath]: loadIngredientsSlice.reducer,

@@ -1,13 +1,17 @@
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
-import IngredientsGroup from './ingredients-group/ingredients-group';
-import styles from './burger-ingredients.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import Modal from '../modal/modal';
-import IngridientsDetails from './ingridients-details/ingridients-details';
-import { unselectIngredient } from '../../services/slices/ingredients-details';
+
 import { useRef } from 'react';
-import { changeActiveTab } from '../../services/slices/tab-info';
+import { useDispatch, useSelector } from 'react-redux';
+
+import styles from './burger-ingredients.module.css';
+import IngredientsGroup from './ingredients-group/ingredients-group';
+
+import IngridientsDetails from './ingridients-details/ingridients-details';
+
 import { getBuns, getMains, getSauces } from '../../services/selectors';
+import { unselectIngredient } from '../../services/slices/ingredients-details';
+import { changeActiveTab } from '../../services/slices/tab-info';
+import Modal from '../modal/modal';
 
 function BurgerIngredients() {
   const dispatch = useDispatch();

@@ -1,9 +1,12 @@
 import { Counter, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-import styles from './ingredient-item.module.css';
-import { dataPropTypes } from '../../../utils/dataPropTypes';
-import { useDispatch } from 'react-redux';
-import { selectIngredient } from '../../../services/slices/ingredients-details';
+
 import { useDrag } from 'react-dnd';
+import { useDispatch } from 'react-redux';
+
+import styles from './ingredient-item.module.css';
+
+import { selectIngredient } from '../../../services/slices/ingredients-details';
+import { dataPropTypes } from '../../../utils/dataPropTypes';
 
 function IngredientItem(props) {
   const dispatch = useDispatch();

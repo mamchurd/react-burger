@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
-import styles from './app.module.css';
-import AppHeader from '../app-header/app-header';
-import BurgerIngredients from '../burger-ingredients/burger-ingredients';
-import BurgerConstructor from '../burger-constructor/burger-constructor';
+
 import { useDispatch, useSelector } from 'react-redux';
+
+import styles from './app.module.css';
+
 import { fetchIngredients } from '../../services/slices/load-ingredients';
+import AppHeader from '../app-header/app-header';
+import BurgerConstructor from '../burger-constructor/burger-constructor';
+import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 
 const MESSAGE_LOADING = 'Подождите, идет загрузка...';
 const MESSAGE_ERROR = 'Упс, у нас возникли технические неполадки :(';

@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+
 import styles from './ingridients-details.module.css';
 
 function IngridientsDetails() {

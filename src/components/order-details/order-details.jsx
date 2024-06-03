@@ -1,7 +1,9 @@
+import { useSelector } from 'react-redux';
+
 import styles from './order-details.module.css';
+
 import img from '../../images/image.png';
 import loading from '../../images/loading.gif';
-import { useSelector } from 'react-redux';
 
 function OrderDetails() {
   const { orderNumber, isLoading, isError } = useSelector((store) => store.createOrder);

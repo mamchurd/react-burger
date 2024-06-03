@@ -1,11 +1,14 @@
 import { Button, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-import OrderDetails from '../../order-details/order-details';
-import Modal from '../../modal/modal';
-import styles from './burger-cinstuctor-order.module.css';
+
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearOrder, fetchOrder } from '../../../services/slices/create-order';
+
+import styles from './burger-cinstuctor-order.module.css';
+
 import { clearIngredientsList } from '../../../services/slices/constructor-ingredients-list';
+import { clearOrder, fetchOrder } from '../../../services/slices/create-order';
+import Modal from '../../modal/modal';
+import OrderDetails from '../../order-details/order-details';
 
 function BurgerConstructorOrder() {
   const { bun, ingredients } = useSelector((store) => store.ingredientsList);

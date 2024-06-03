@@ -1,9 +1,11 @@
-import { useSelector } from 'react-redux';
-import { dataPropTypes } from '../../../utils/dataPropTypes';
-import IngredientItem from '../ingredient-item/ingredient-item';
-import styles from './ingredients-group.module.css';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+
+import styles from './ingredients-group.module.css';
+
+import { dataPropTypes } from '../../../utils/dataPropTypes';
+import IngredientItem from '../ingredient-item/ingredient-item';
 
 function IngredientsGroup(props) {
   const { bun, ingredients } = useSelector((store) => store.ingredientsList);
