@@ -9,37 +9,33 @@ import { fetchIngredients } from '../../services/slices/load-ingredients';
 const MESSAGE_LOADING = 'Подождите, идет загрузка...';
 const MESSAGE_ERROR = 'Упс, у нас возникли технические неполадки :(';
 
-
 function App() {
- 
-  const { isLoading, isFailed} = useSelector(store => store.loadIngredients)
+  const { isLoading, isFailed } = useSelector((store) => store.loadIngredients);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchIngredients())
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    dispatch(fetchIngredients());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      {(isLoading || isFailed) ? (
+      {isLoading || isFailed ? (
         <main className={styles.loading}>
-          <p className="text text_type_main-large">
-            {isLoading ? MESSAGE_LOADING : MESSAGE_ERROR}  
-          </p>
+          <p className='text text_type_main-large'>{isLoading ? MESSAGE_LOADING : MESSAGE_ERROR}</p>
         </main>
-      ) : 
+      ) : (
         <>
-          <AppHeader/>
+          <AppHeader />
           <main className={styles.main}>
-          <div className={styles.inner}>
-              <BurgerIngredients/>
-              <BurgerConstructor/>
-            </div> 
+            <div className={styles.inner}>
+              <BurgerIngredients />
+              <BurgerConstructor />
+            </div>
           </main>
         </>
-      }       
+      )}
     </>
   );
 }

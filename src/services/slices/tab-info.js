@@ -1,19 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    currentTab:'bun'
-}
+  currentTab: 'bun'
+};
 
-const tabInfoSlice = createSlice ({
-    name: 'tabInfo',
-    initialState,
-    reducers: {
-        changeActiveTab: (state, action) => {
-            state.currentTab = action.payload
-        }
+const tabInfoSlice = createSlice({
+  name: 'tabInfo',
+  initialState,
+  reducers: {
+    changeActiveTab: (state, action) => {
+      state.currentTab = action.payload;
     }
-})
+  }
+});
 
-export const { changeActiveTab } = tabInfoSlice.actions
+export const { changeActiveTab } = tabInfoSlice.actions;
 
-export default tabInfoSlice
+export default tabInfoSlice;

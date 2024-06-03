@@ -1,44 +1,43 @@
 .section {
-    flex: 0 0 600px;
+  flex: 0 0 600px;
 }
 
 .list {
-    overflow-y: auto;
-    max-height: 660px;
-    scrollbar-color: #8585AD #2F2F37;
-	scrollbar-width: thin;
+  overflow-y: auto;
+  max-height: 660px;
+  scrollbar-color: #8585ad #2f2f37;
+  scrollbar-width: thin;
 }
 
 @media (max-height: 950px) {
-    .list {
-        max-height: 560px;
-    }
+  .list {
+    max-height: 560px;
+  }
 }
 
 @media (max-height: 850px) {
-    .list {
-        max-height: 460px;
-    }
+  .list {
+    max-height: 460px;
+  }
 }
 
 @media (max-height: 750px) {
-    .list {
-        max-height: 360px;
-    }
+  .list {
+    max-height: 360px;
+  }
 }
 
 @media (max-height: 650px) {
-    .list {
-        max-height: 260px;
-    }    
+  .list {
+    max-height: 260px;
+  }
 }
 
 .list :last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .tabs {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
-
