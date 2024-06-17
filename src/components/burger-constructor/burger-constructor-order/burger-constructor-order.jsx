@@ -38,9 +38,7 @@ function BurgerConstructorOrder() {
       navigate(URL_LOGIN, { replace: true });
     } else {
       if (canCreateOrder) {
-        const orderIngredients = [...ingredients];
-        orderIngredients.unshift(bun);
-        orderIngredients.push(bun);
+        const orderIngredients = [bun, ...ingredients, bun];
         dispatch(fetchOrder(orderIngredients));
       }
     }
