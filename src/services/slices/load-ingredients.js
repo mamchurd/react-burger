@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { dataLoad } from '../../utils/api';
+import { api } from '../../utils/api';
 
 const initialState = {
   data: [],
@@ -14,7 +14,7 @@ const loadIngredientsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchIngredients.fulfilled, (state, action) => {
-        state.data = action.payload;
+        state.data = action.payload.data;
         state.isLoading = false;
         state.isFailed = false;
       })
@@ -32,7 +32,7 @@ const loadIngredientsSlice = createSlice({
 
 export const fetchIngredients = createAsyncThunk('loadIngredients/fetchIngredients', async (_, thunkAPI) => {
   try {
-    return await dataLoad();
+    return await api.dataLoad();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.massage);
   }

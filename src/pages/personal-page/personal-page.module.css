@@ -1,0 +1,12 @@
+.li {
+  composes: mb-10 from global;
+}
+
+.exit-button {
+  padding-left: 0px;
+  padding-top: 0px;
+}
+
+.nav {
+  width: 410px;
+}

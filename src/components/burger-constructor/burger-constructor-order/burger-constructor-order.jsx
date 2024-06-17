@@ -3,17 +3,23 @@ import { Button, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-co
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { useNavigate } from 'react-router-dom';
+
 import styles from './burger-constructor-order.module.css';
 
+import { getUser } from '../../../services/slices/auth';
 import { clearIngredientsList } from '../../../services/slices/constructor-ingredients-list';
 import { clearOrder, fetchOrder } from '../../../services/slices/create-order';
+import { URL_LOGIN } from '../../../utils/routes';
 import Modal from '../../modal/modal';
 import OrderDetails from '../../order-details/order-details';
 
 function BurgerConstructorOrder() {
   const { bun, ingredients } = useSelector((store) => store.ingredientsList);
   const { orderNumber, isLoading, isError } = useSelector((store) => store.createOrder);
+  const user = useSelector(getUser);
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const totalPrice = useMemo(() => {
@@ -28,11 +34,13 @@ function BurgerConstructorOrder() {
   const canCreateOrder = useMemo(() => bun && ingredients.length > 0, [ingredients, bun]);
 
   const handleCreateOrderClick = () => {
-    if (canCreateOrder) {
-      const orderIngredients = [...ingredients];
-      orderIngredients.unshift(bun);
-      orderIngredients.push(bun);
-      dispatch(fetchOrder(orderIngredients));
+    if (!user) {
+      navigate(URL_LOGIN, { replace: true });
+    } else {
+      if (canCreateOrder) {
+        const orderIngredients = [bun, ...ingredients, bun];
+        dispatch(fetchOrder(orderIngredients));
+      }
     }
   };
 
