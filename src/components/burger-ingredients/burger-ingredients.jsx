@@ -4,13 +4,10 @@ import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './burger-ingredients.module.css';
-import IngredientsDetails from './ingredients-details/ingredients-details';
 import IngredientsGroup from './ingredients-group/ingredients-group';
 
 import { getBuns, getMains, getSauces } from '../../services/selectors';
-import { unselectIngredient } from '../../services/slices/ingredients-details';
 import { changeActiveTab } from '../../services/slices/tab-info';
-import Modal from '../modal/modal';
 
 function BurgerIngredients() {
   const dispatch = useDispatch();
@@ -20,7 +17,6 @@ function BurgerIngredients() {
   const sauceGroupRef = useRef();
   const mainGroupRef = useRef();
 
-  const selectedItem = useSelector((store) => store.ingredientsDetail.selectedItem);
   const { currentTab } = useSelector((store) => store.tabInfo);
 
   const buns = useSelector(getBuns);
@@ -49,11 +45,6 @@ function BurgerIngredients() {
     ].reduce((acc, tab) => (acc.distance < tab.distance ? acc : tab));
 
     dispatch(changeActiveTab(closestTab.tab));
-  }
-
-  function hideModal(event) {
-    dispatch(unselectIngredient());
-    event.stopPropagation();
   }
 
   return (
@@ -89,11 +80,6 @@ function BurgerIngredients() {
           <IngredientsGroup name='Начинки' data={mains} />{' '}
         </div>
       </div>
-      {selectedItem && (
-        <Modal caption={'Детали ингридиента'} onClose={hideModal}>
-          <IngredientsDetails />
-        </Modal>
-      )}
     </section>
   );
 }

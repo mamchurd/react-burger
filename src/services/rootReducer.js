@@ -1,3 +1,4 @@
+import authSlice from './slices/auth';
 import constructorIngredientsListSlice from './slices/constructor-ingredients-list';
 import createOrderSlice from './slices/create-order';
 import ingredientsDetailSlice from './slices/ingredients-details';
@@ -9,5 +10,6 @@ export const rootReducer = {
   [ingredientsDetailSlice.reducerPath]: ingredientsDetailSlice.reducer,
   [tabInfoSlice.reducerPath]: tabInfoSlice.reducer,
   [constructorIngredientsListSlice.reducerPath]: constructorIngredientsListSlice.reducer,
-  [createOrderSlice.reducerPath]: createOrderSlice.reducer
+  [createOrderSlice.reducerPath]: createOrderSlice.reducer,
+  [authSlice.reducerPath]: authSlice.reducer
 };
